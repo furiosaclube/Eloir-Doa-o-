@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Eloir Menegaze – Spendenkampagne</title>
+
+<style>
+:root{
+  --bg:#0b0f10;
+  --card:#0f1616;
+  --accent:#ef5b35;
+  --muted:#9db0ab;
+  --green:#2fc27f;
+  --red:#ff3b3b;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:#fff}
+
+/* Top urgency timer */
+.timer-bar{
+  background:var(--red);
+  text-align:center;
+  font-weight:900;
+  padding:8px;
+  font-size:14px;
+}
+
+.wrap{max-width:760px;margin:16px auto;padding:16px}
+
+.hero{position:relative;border-radius:12px;overflow:hidden;height:240px}
+.hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.hero-overlay{
+  position:absolute;inset:0;padding:18px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.9))
+}
+.kicker{
+  background:var(--accent);
+  padding:6px 10px;border-radius:8px;
+  font-weight:800;font-size:12px;width:max-content
+}
+.title{font-size:22px;font-weight:900;margin:8px 0}
+.sub{font-size:14px;color:var(--muted)}
+
+.card{
+  background:var(--card);
+  padding:16px;
+  border-radius:10px;
+  margin-top:14px;
+}
+
+.counter{
+  font-size:14px;
+  font-weight:700;
+  margin-top:6px;
+}
+.counter strong{color:var(--green)}
+
+.progress{
+  height:10px;
+  background:#1a1f1f;
+  border-radius:999px;
+  overflow:hidden;
+  margin:10px 0;
+}
+.progress i{
+  height:100%;
+  display:block;
+  width:65%;
+  background:linear-gradient(90deg,var(--green),#63f0b0);
+}
+
+.tiers{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:10px
+}
+.tier{
+  flex:1 1 120px;
+  background:#0b1312;
+  padding:12px;
+  border-radius:8px;
+  border:2px solid rgba(255,255,255,.04);
+  cursor:pointer;
+  text-align:center;
+}
+.tier.sel{
+  border-color:var(--green);
+  background:rgba(47,194,127,.08);
+}
+.tier strong{font-size:18px;display:block}
+.tier small{font-size:12px;color:var(--muted)}
+
+.btn{
+  width:100%;
+  margin-top:12px;
+  padding:14px;
+  background:var(--accent);
+  border:none;
+  border-radius:10px;
+  font-weight:900;
+  font-size:16px;
+  cursor:pointer;
+  text-transform:uppercase;
+}
+
+.badge-row{
+  display:flex;gap:8px;margin-top:10px;flex-wrap:wrap
+}
+.badge{
+  background:#071010;
+  padding:8px 10px;
+  font-size:11px;
+  border-radius:8px;
+  color:var(--muted);
+}
+
+.donations{margin-top:14px}
+.donations ul{list-style:none;padding:0;margin:8px 0}
+.donations li{
+  font-size:13px;
+  color:var(--muted);
+  padding:4px 0;
+}
+
+footer{
+  text-align:center;
+  font-size:11px;
+  color:var(--muted);
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Urgency timer -->
+<div class="timer-bar">
+  ⏳ Nur noch <strong>4 Tage</strong> – diese Kampagne endet bald
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="https://i.postimg.cc/KvbVL7LQ/Screenshot-2025-12-09-05-17-02-446-com-miui-mediaviewer-edit.jpg" alt="Eloir Menegaze">
+    <div class="hero-overlay">
+      <div class="kicker">SCHWERER ARBEITSUNFALL</div>
+      <div class="title">
+        Eloir verlor beide Arme – und kämpft um ein selbstständiges Leben
+      </div>
+      <div class="sub">
+        Eine einzige Sekunde veränderte alles. Ihre Hilfe bringt Würde und Autonomie zurück.
+      </div>
+    </div>
+  </div>
+
+  <!-- DONATION CARD -->
+  <div class="card">
+    <strong>Jetzt helfen</strong>
+
+    <div class="counter">
+      <strong>€65.080</strong> von €100.000 gesammelt
+    </div>
+
+    <div class="progress"><i></i></div>
+
+    <div class="tiers" id="tiers">
+      <div class="tier sel" data-link="https://donate.stripe.com/eVq28q5PzaTCdAR5y8c3m01"><strong>10 €</strong></div>
+      <div class="tier" data-link="https://donate.stripe.com/28E00icdX7HqaoFe4Ec3m02"><strong>25 €</strong></div>
+      <div class="tier" data-link="https://donate.stripe.com/9B67sK3Hr7HqcwN7Ggc3m03"><strong>50 €</strong></div>
+      <div class="tier" data-link="https://donate.stripe.com/5kQaEW7XH6Dm9kB7Ggc3m04"><strong>100 €</strong></div>
+      <div class="tier" data-link="https://donate.stripe.com/bJefZg6TD0eYeEV7Ggc3m05"><strong>250 €</strong></div>
+      <div class="tier" data-link="https://donate.stripe.com/8x27sK91L0eY9kB0dOc3m06">
+        <strong>Eigenen Betrag</strong>
+        <small>frei wählen</small>
+      </div>
+    </div>
+
+    <button class="btn" id="donateBtn">Jetzt spenden</button>
+
+    <div class="badge-row">
+      <div class="badge">Stripe • sichere Zahlung</div>
+      <div class="badge">Direkte Hilfe</div>
+      <div class="badge">Verifiziert & transparent</div>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF -->
+  <div class="card donations">
+    <strong>Letzte Spenden</strong>
+    <ul id="donationList">
+      <li>✅ Anna K. – 50 €</li>
+      <li>✅ Markus H. – 25 €</li>
+      <li>✅ Laura S. – 10 €</li>
+    </ul>
+  </div>
+
+  <footer>
+    Jede Unterstützung zählt • Danke für Ihre Solidarität
+  </footer>
+
+</div>
+
+<script>
+let selectedLink = "https://donate.stripe.com/eVq28q5PzaTCdAR5y8c3m01";
+
+document.getElementById("tiers").onclick = e=>{
+  const t = e.target.closest(".tier");
+  if(!t) return;
+  document.querySelectorAll(".tier").forEach(x=>x.classList.remove("sel"));
+  t.classList.add("sel");
+  selectedLink = t.dataset.link;
+};
+
+document.getElementById("donateBtn").onclick = ()=>{
+  window.location.href = selectedLink;
+};
+
+// Fake live donations (credibility)
+const names = ["Sophie M.","Daniel R.","Thomas B.","Julia K.","Michael W.","Nina L.","Paul G."];
+const amounts = ["10 €","25 €","50 €","100 €"];
+
+setInterval(()=>{
+  const li = document.createElement("li");
+  li.innerText = `✅ ${names[Math.floor(Math.random()*names.length)]} – ${amounts[Math.floor(Math.random()*amounts.length)]}`;
+  const list = document.getElementById("donationList");
+  list.prepend(li);
+  if(list.children.length > 5) list.removeChild(list.lastChild);
+}, 6500);
+</script>
+
+</body>
+</html>
