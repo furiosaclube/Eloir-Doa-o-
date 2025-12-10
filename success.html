@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Danke für Ihre Spende</title>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)n._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src='https://connect.facebook.net/en_US/fbevents.js';
+  s=b.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(t,s);
+  }(window, document,'script');
+  fbq('init', '961141072401536');
+  fbq('track', 'PageView');
+  </script>
+</head>
+
+<body style="background:#0b0f10;color:#fff;font-family:system-ui;text-align:center;padding:40px">
+
+  <h1>✅ Vielen Dank für Ihre Spende</h1>
+  <p>Ihre Unterstützung macht einen echten Unterschied.</p>
+
+  <script>
+    fbq('track', 'Purchase', {
+      value: 50.00,
+      currency: 'EUR'
+    });
+  </script>
+
+</body>
+</html>
